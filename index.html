@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para ti Iris 🌷❤️</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    height: 100vh;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(#dff5ff, #f2fbff);
+}
+
+/* MENSAJE */
+.mensaje {
+    position: absolute;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 750px;
+    text-align: center;
+    z-index: 20;
+}
+
+.mensaje h1 {
+    color: #4a90c2;
+    font-size: 38px;
+    margin-bottom: 15px;
+}
+
+#texto {
+    color: #2d5b7a;
+    font-size: 18px;
+    line-height: 1.6;
+    min-height: 250px;
+}
+
+/* JARDÍN */
+.jardin {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 45px;
+}
+
+/* FLOR */
+.flor {
+    position: relative;
+    width: 70px;
+    height: 260px;
+    animation: balanceo 3s ease-in-out infinite;
+    transform-origin: bottom center;
+}
+
+.flor:nth-child(2) {
+    animation-delay: .5s;
+}
+
+.flor:nth-child(3) {
+    animation-delay: 1s;
+}
+
+.flor:nth-child(4) {
+    animation-delay: 1.5s;
+}
+
+@keyframes balanceo {
+    0%, 100% {
+        transform: rotate(-4deg);
+    }
+
+    50% {
+        transform: rotate(4deg);
+    }
+}
+
+/* TALLO */
+.tallo {
+    position: absolute;
+    width: 8px;
+    height: 190px;
+    background: #2e9d61;
+    left: 31px;
+    bottom: 0;
+    border-radius: 10px;
+}
+
+/* HOJAS */
+.hoja {
+    position: absolute;
+    width: 70px;
+    height: 30px;
+    background: #4caf50;
+    border-radius: 100% 0;
+    bottom: 65px;
+    left: -20px;
+    transform: rotate(-25deg);
+}
+
+.hoja2 {
+    position: absolute;
+    width: 70px;
+    height: 30px;
+    background: #4caf50;
+    border-radius: 0 100%;
+    bottom: 100px;
+    left: 20px;
+    transform: rotate(25deg);
+}
+
+/* TULIPÁN */
+.tulipan {
+    position: absolute;
+    width: 65px;
+    height: 70px;
+    left: 3px;
+    bottom: 175px;
+    background: #7ec8f5;
+    border-radius: 50% 50% 35% 35%;
+    z-index: 5;
+    box-shadow: 0 5px 15px rgba(55, 130, 190, 0.45);
+}
+
+.tulipan::before {
+    content: "";
+    position: absolute;
+    width: 32px;
+    height: 70px;
+    left: -8px;
+    top: 0;
+    background: #7ec8f5;
+    border-radius: 50% 20% 40% 40%;
+    transform: rotate(-15deg);
+}
+
+.tulipan::after {
+    content: "";
+    position: absolute;
+    width: 32px;
+    height: 70px;
+    right: -8px;
+    top: 0;
+    background: #7ec8f5;
+    border-radius: 20% 50% 40% 40%;
+    transform: rotate(15deg);
+}
+
+/* CORAZONES */
+.corazon {
+    position: fixed;
+    top: -50px;
+    font-size: 25px;
+    animation: caer linear infinite;
+    z-index: 30;
+    pointer-events: none;
+}
+
+@keyframes caer {
+    0% {
+        transform: translateY(-50px) rotate(0deg);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* BOTONES */
+.botones {
+    position: absolute;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    z-index: 40;
+}
+
+.boton {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 25px;
+    background: #5aa9dd;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    min-width: 210px;
+}
+
+.boton:hover {
+    background: #3e8ec7;
+}
+
+.boton.whatsapp {
+    background: #25d366;
+}
+
+.boton.whatsapp:hover {
+    background: #1ebc59;
+}
+
+
+/* CELULAR */
+@media (max-width: 600px) {
+
+    .mensaje {
+        top: 15px;
+        width: 92%;
+    }
+
+    .mensaje h1 {
+        font-size: 28px;
+    }
+
+    #texto {
+        font-size: 15px;
+        line-height: 1.4;
+        min-height: 280px;
+    }
+
+    .jardin {
+        gap: 10px;
+        height: 32%;
+    }
+
+    .flor {
+        transform: scale(.7);
+    }
+
+    .flor:nth-child(2),
+    .flor:nth-child(3),
+    .flor:nth-child(4) {
+        animation-delay: 0s;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="mensaje">
+    <h1>🌷 Para ti Iris 🌷</h1>
+    <p id="texto"></p>
+</div>
+
+<!-- TULIPANES -->
+<div class="jardin">
+
+    <div class="flor">
+        <div class="tulipan"></div>
+        <div class="tallo"></div>
+        <div class="hoja"></div>
+        <div class="hoja2"></div>
+    </div>
+
+    <div class="flor">
+        <div class="tulipan"></div>
+        <div class="tallo"></div>
+        <div class="hoja"></div>
+        <div class="hoja2"></div>
+    </div>
+
+    <div class="flor">
+        <div class="tulipan"></div>
+        <div class="tallo"></div>
+        <div class="hoja"></div>
+        <div class="hoja2"></div>
+    </div>
+
+    <div class="flor">
+        <div class="tulipan"></div>
+        <div class="tallo"></div>
+        <div class="hoja"></div>
+        <div class="hoja2"></div>
+    </div>
+
+</div>
+
+<div class="botones">
+    <button class="boton" onclick="crearCorazones()">
+        ❤️ Para ti Iris
+    </button>
+</div>
+
+<script>
+
+const frase = `Quise regalarte estos tulipanes porque, aunque unas flores no pueden expresar todo lo que siento, cada uno lleva un poquito de cariño, admiración y amor para ti, Iris. 🌷❤️
+
+Tal vez no siempre encuentre las palabras perfectas para decirte lo importante que eres para mí, pero quiero que sepas que me hace feliz haberte conocido y compartir momentos contigo. Hay personas que iluminan nuestra vida de una manera especial, y tú eres una de esas personas.
+
+Espero que cuando veas estos tulipanes recuerdes que alguien pensó en ti con mucho cariño y quiso regalarte un pequeño detalle para sacarte una sonrisa. ❤️🌷`;
+
+const texto = document.getElementById("texto");
+
+let i = 0;
+
+function escribir() {
+
+    if (i < frase.length) {
+
+        if (frase[i] === "\n") {
+            texto.innerHTML += "<br><br>";
+        } else {
+            texto.innerHTML += frase[i];
+        }
+
+        i++;
+
+        setTimeout(escribir, 35);
+    }
+}
+
+escribir();
+
+
+/* CORAZONES QUE CAEN */
+const corazones = ["❤️", "💕", "💗", "💖", "🌷"];
+
+function crearCorazon() {
+
+    const corazon = document.createElement("div");
+
+    corazon.classList.add("corazon");
+
+    corazon.innerHTML =
+        corazones[Math.floor(Math.random() * corazones.length)];
+
+    corazon.style.left = Math.random() * 100 + "vw";
+
+    corazon.style.fontSize =
+        (15 + Math.random() * 25) + "px";
+
+    corazon.style.animationDuration =
+        (4 + Math.random() * 5) + "s";
+
+    document.body.appendChild(corazon);
+
+    setTimeout(() => {
+        corazon.remove();
+    }, 9000);
+}
+
+setInterval(crearCorazon, 500);
+
+
+/* BOTÓN */
+function crearCorazones() {
+
+    for (let i = 0; i < 20; i++) {
+
+        setTimeout(() => {
+            crearCorazon();
+        }, i * 100);
+    }
+}
+
+
+</script>
+
+</body>
+</html>
