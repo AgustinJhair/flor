@@ -15,10 +15,53 @@ body {
     height: 100vh;
     overflow: hidden;
     font-family: Arial, sans-serif;
-    background: linear-gradient(#dff5ff, #f2fbff);
+    background:
+        radial-gradient(circle at 20% 20%, rgba(255,255,255,0.55), transparent 18%),
+        radial-gradient(circle at 80% 30%, rgba(179, 221, 255, 0.24), transparent 20%),
+        linear-gradient(180deg, #0b1220 0%, #111b2d 28%, #1a2940 100%);
 }
 
-/* MENSAJE */
+body::before,
+body::after {
+    content: "";
+    position: fixed;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+body::before {
+    width: 170px;
+    height: 170px;
+    left: 50%;
+    top: 70px;
+    transform: translateX(-50%);
+    background: radial-gradient(circle at 35% 35%, #fffef7 0%, #fdf4b0 34%, #d4d1ff 100%);
+    box-shadow: 0 0 16px rgba(255, 246, 170, 0.6), 0 0 30px rgba(160, 180, 255, 0.2);
+}
+
+body::after {
+    width: 100%;
+    height: 100%;
+    inset: 0;
+    background-image:
+        radial-gradient(2.5px 2.5px at 8% 18%, rgba(255,255,255,1) 0, transparent 100%),
+        radial-gradient(2.5px 2.5px at 16% 28%, rgba(255,255,255,1) 0, transparent 100%),
+        radial-gradient(2px 2px at 28% 16%, rgba(255,255,255,0.9) 0, transparent 100%),
+        radial-gradient(2px 2px at 40% 24%, rgba(255,255,255,0.9) 0, transparent 100%),
+        radial-gradient(2.5px 2.5px at 60% 12%, rgba(255,255,255,1) 0, transparent 100%),
+        radial-gradient(2px 2px at 67% 24%, rgba(255,255,255,0.9) 0, transparent 100%),
+        radial-gradient(2px 2px at 76% 18%, rgba(255,255,255,0.9) 0, transparent 100%),
+        radial-gradient(2.5px 2.5px at 88% 20%, rgba(255,255,255,1) 0, transparent 100%),
+        radial-gradient(2px 2px at 92% 16%, rgba(255,255,255,0.9) 0, transparent 100%),
+        radial-gradient(2px 2px at 12% 74%, rgba(255,255,255,0.9) 0, transparent 100%),
+        radial-gradient(2.5px 2.5px at 24% 82%, rgba(255,255,255,1) 0, transparent 100%),
+        radial-gradient(2.5px 2.5px at 78% 78%, rgba(255,255,255,1) 0, transparent 100%),
+        radial-gradient(2px 2px at 90% 76%, rgba(255,255,255,0.9) 0, transparent 100%);
+    opacity: 1;
+    filter: drop-shadow(0 0 6px rgba(255,255,255,0.7));
+}
+
 .mensaje {
     position: absolute;
     top: 30px;
@@ -30,20 +73,63 @@ body {
     z-index: 20;
 }
 
+.foto-corazon {
+    position: fixed;
+    right: 5%;
+    top: 68%;
+    width: 90px;
+    height: 90px;
+    z-index: 12;
+    transform: rotate(8deg);
+    box-shadow: 0 0 20px rgba(255, 208, 236, 0.9), 0 0 34px rgba(255, 141, 199, 0.75), 0 0 48px rgba(138, 221, 255, 0.7), 0 0 66px rgba(255, 255, 255, 0.38), 0 12px 30px rgba(0, 0, 0, 0.18);
+    background: #fff;
+    clip-path: path("M 50 100 C 44 92, 18 73, 10 50 C 3 31, 9 12, 26 9 C 37 7, 46 15, 50 24 C 54 15, 63 7, 74 9 C 91 12, 97 31, 90 50 C 82 73, 56 92, 50 100 Z");
+    overflow: hidden;
+    filter: saturate(1.12) contrast(1.1) brightness(1.05);
+    border: 1px solid rgba(255, 255, 255, 0.55);
+}
+
+.foto-corazon::before {
+    content: "";
+    position: absolute;
+    inset: 8px 10px 8px 10px;
+    border-radius: 48% 52% 46% 54% / 56% 43% 57% 44%;
+    background: linear-gradient(90deg, rgba(255,255,255,0.18), rgba(255,145,214,0.18), rgba(144,208,255,0.18), rgba(255,255,255,0.12));
+    box-shadow: inset 0 0 12px rgba(255,255,255,0.4), inset 0 0 18px rgba(255,145,214,0.25);
+    filter: blur(4px);
+    pointer-events: none;
+}
+
+.foto-corazon:nth-of-type(2) {
+    left: 5%;
+    right: auto;
+    top: 68%;
+    transform: rotate(-8deg);
+}
+
+.foto-corazon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: saturate(1.08) contrast(1.08);
+}
+
 .mensaje h1 {
-    color: #4a90c2;
-    font-size: 38px;
+    color: #f5d5e7;
+    font-size: 42px;
     margin-bottom: 15px;
+    text-shadow: 0 0 18px rgba(255, 196, 225, 0.6), 0 4px 14px rgba(255, 255, 255, 0.12);
 }
 
 #texto {
-    color: #2d5b7a;
+    color: #dfe9ff;
     font-size: 18px;
-    line-height: 1.6;
+    line-height: 1.7;
     min-height: 250px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
 }
 
-/* JARDÍN */
 .jardin {
     position: absolute;
     bottom: 0;
@@ -56,7 +142,6 @@ body {
     gap: 45px;
 }
 
-/* FLOR */
 .flor {
     position: relative;
     width: 70px;
@@ -87,61 +172,61 @@ body {
     }
 }
 
-/* TALLO */
 .tallo {
     position: absolute;
     width: 8px;
     height: 190px;
-    background: #2e9d61;
+    background: linear-gradient(#4dbd7d, #2d8f5c);
     left: 31px;
     bottom: 0;
     border-radius: 10px;
+    box-shadow: inset 0 0 4px rgba(255,255,255,0.4);
 }
 
-/* HOJAS */
 .hoja {
     position: absolute;
     width: 70px;
     height: 30px;
-    background: #4caf50;
+    background: linear-gradient(#6fdb8c, #42a661);
     border-radius: 100% 0;
     bottom: 65px;
     left: -20px;
     transform: rotate(-25deg);
+    box-shadow: 0 4px 8px rgba(38, 120, 76, 0.15);
 }
 
 .hoja2 {
     position: absolute;
     width: 70px;
     height: 30px;
-    background: #4caf50;
+    background: linear-gradient(#6fdb8c, #42a661);
     border-radius: 0 100%;
     bottom: 100px;
     left: 20px;
     transform: rotate(25deg);
+    box-shadow: 0 4px 8px rgba(38, 120, 76, 0.15);
 }
 
-/* TULIPÁN */
 .tulipan {
     position: absolute;
-    width: 65px;
-    height: 70px;
-    left: 3px;
+    width: 68px;
+    height: 75px;
+    left: 1px;
     bottom: 175px;
-    background: #7ec8f5;
+    background: linear-gradient(#89d9ff, #76baf6);
     border-radius: 50% 50% 35% 35%;
     z-index: 5;
-    box-shadow: 0 5px 15px rgba(55, 130, 190, 0.45);
+    box-shadow: 0 8px 18px rgba(92, 143, 204, 0.35);
 }
 
 .tulipan::before {
     content: "";
     position: absolute;
-    width: 32px;
-    height: 70px;
+    width: 34px;
+    height: 75px;
     left: -8px;
     top: 0;
-    background: #7ec8f5;
+    background: linear-gradient(#89d9ff, #76baf6);
     border-radius: 50% 20% 40% 40%;
     transform: rotate(-15deg);
 }
@@ -149,16 +234,15 @@ body {
 .tulipan::after {
     content: "";
     position: absolute;
-    width: 32px;
-    height: 70px;
+    width: 34px;
+    height: 75px;
     right: -8px;
     top: 0;
-    background: #7ec8f5;
+    background: linear-gradient(#89d9ff, #76baf6);
     border-radius: 20% 50% 40% 40%;
     transform: rotate(15deg);
 }
 
-/* CORAZONES */
 .corazon {
     position: fixed;
     top: -50px;
@@ -166,6 +250,32 @@ body {
     animation: caer linear infinite;
     z-index: 30;
     pointer-events: none;
+}
+
+.botones {
+    position: absolute;
+    left: 50%;
+    bottom: 28px;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    z-index: 40;
+}
+
+.boton {
+    padding: 12px 26px;
+    border: 1px solid rgba(255,255,255,0.45);
+    border-radius: 999px;
+    background: linear-gradient(135deg, #f7d7ef 0%, #d8e9ff 45%, #c8f3ff 100%);
+    color: #1f2a3d;
+    font-weight: 700;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0 10px 24px rgba(150, 180, 255, 0.32), 0 0 20px rgba(255, 196, 225, 0.32);
+}
+
+.boton:hover {
+    filter: brightness(1.05);
 }
 
 @keyframes caer {
@@ -184,46 +294,7 @@ body {
     }
 }
 
-/* BOTONES */
-.botones {
-    position: absolute;
-    bottom: 25px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    align-items: center;
-    z-index: 40;
-}
-
-.boton {
-    padding: 12px 25px;
-    border: none;
-    border-radius: 25px;
-    background: #5aa9dd;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-    min-width: 210px;
-}
-
-.boton:hover {
-    background: #3e8ec7;
-}
-
-.boton.whatsapp {
-    background: #25d366;
-}
-
-.boton.whatsapp:hover {
-    background: #1ebc59;
-}
-
-
-/* CELULAR */
 @media (max-width: 600px) {
-
     .mensaje {
         top: 15px;
         width: 92%;
@@ -256,17 +327,22 @@ body {
 }
 </style>
 </head>
-
 <body>
+
+<div class="foto-corazon">
+    <img src="foto-iris.jpg/Captura de pantalla 2026-09-22 002711.png" alt="Iris">
+</div>
+
+<div class="foto-corazon" style="left: 5%; right: auto; top: 68%; transform: rotate(-8deg);">
+    <img src="foto-iris.jpg/Captura de pantalla 2026-09-22 002711.png" alt="Iris">
+</div>
 
 <div class="mensaje">
     <h1>🌷 Para ti Iris 🌷</h1>
     <p id="texto"></p>
 </div>
 
-<!-- TULIPANES -->
 <div class="jardin">
-
     <div class="flor">
         <div class="tulipan"></div>
         <div class="tallo"></div>
@@ -294,65 +370,51 @@ body {
         <div class="hoja"></div>
         <div class="hoja2"></div>
     </div>
-
 </div>
 
 <div class="botones">
-    <button class="boton" onclick="crearCorazones()">
-        ❤️ Para ti Iris
-    </button>
+    <button class="boton">Para ti Iris ❤️</button>
 </div>
 
 <script>
+const frase = `Quise regalarte estos tulipanes porque hay días en los que las palabras se quedan cortas, y aun así quiero que sientas lo mucho que te valoro, Iris. 🌷❤️
 
-const frase = `Quise regalarte estos tulipanes porque, aunque unas flores no pueden expresar todo lo que siento, cada uno lleva un poquito de cariño, admiración y amor para ti, Iris. 🌷❤️
+Tú tienes esa manera de hacer que el mundo se vea más bonito, más tranquilo y más lleno de luz. Cada momento contigo se vuelve especial, y cada recuerdo contigo se guarda con cariño.
 
-Tal vez no siempre encuentre las palabras perfectas para decirte lo importante que eres para mí, pero quiero que sepas que me hace feliz haberte conocido y compartir momentos contigo. Hay personas que iluminan nuestra vida de una manera especial, y tú eres una de esas personas.
-
-Espero que cuando veas estos tulipanes recuerdes que alguien pensó en ti con mucho cariño y quiso regalarte un pequeño detalle para sacarte una sonrisa. ❤️🌷`;
+Gracias por ser esa persona que hace que mi sonrisa se note más, por compartir risas, palabras y momentos que se quedan en el corazón. Espero que estos tulipanes te recuerden lo mucho que te quiero y lo feliz que me hace tenerte cerca. 💗🌷`;
 
 const texto = document.getElementById("texto");
-
 let i = 0;
 
 function escribir() {
-
     if (i < frase.length) {
-
         if (frase[i] === "\n") {
             texto.innerHTML += "<br><br>";
         } else {
             texto.innerHTML += frase[i];
         }
-
         i++;
-
         setTimeout(escribir, 35);
     }
 }
 
 escribir();
 
-
-/* CORAZONES QUE CAEN */
-const corazones = ["❤️", "💕", "💗", "💖", "🌷"];
+const corazones = ["❤️", "💕", "💗", "💖", "🌷", "🌹"];
 
 function crearCorazon() {
+    const x = Math.random() * 100;
+
+    if (x > 30 && x < 70) {
+        return;
+    }
 
     const corazon = document.createElement("div");
-
     corazon.classList.add("corazon");
-
-    corazon.innerHTML =
-        corazones[Math.floor(Math.random() * corazones.length)];
-
-    corazon.style.left = Math.random() * 100 + "vw";
-
-    corazon.style.fontSize =
-        (15 + Math.random() * 25) + "px";
-
-    corazon.style.animationDuration =
-        (4 + Math.random() * 5) + "s";
+    corazon.innerHTML = corazones[Math.floor(Math.random() * corazones.length)];
+    corazon.style.left = x + "vw";
+    corazon.style.fontSize = (15 + Math.random() * 25) + "px";
+    corazon.style.animationDuration = (4 + Math.random() * 5) + "s";
 
     document.body.appendChild(corazon);
 
@@ -363,19 +425,23 @@ function crearCorazon() {
 
 setInterval(crearCorazon, 500);
 
-
-/* BOTÓN */
-function crearCorazones() {
-
-    for (let i = 0; i < 20; i++) {
-
-        setTimeout(() => {
-            crearCorazon();
-        }, i * 100);
-    }
+const boton = document.querySelector('.boton');
+if (boton) {
+    boton.addEventListener('click', () => {
+        for (let i = 0; i < 26; i++) {
+            setTimeout(() => {
+                const corazon = document.createElement('div');
+                corazon.classList.add('corazon');
+                corazon.innerHTML = corazones[Math.floor(Math.random() * corazones.length)];
+                corazon.style.left = (25 + Math.random() * 50) + 'vw';
+                corazon.style.fontSize = (18 + Math.random() * 28) + 'px';
+                corazon.style.animationDuration = (2.5 + Math.random() * 3.8) + 's';
+                document.body.appendChild(corazon);
+                setTimeout(() => corazon.remove(), 6500);
+            }, i * 70);
+        }
+    });
 }
-
-
 </script>
 
 </body>
